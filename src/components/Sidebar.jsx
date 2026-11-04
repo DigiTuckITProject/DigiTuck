@@ -29,9 +29,9 @@ function Sidebar({ activePage, onNavigate }) {
             item, // will loop through every item inside the menuItems array
           ) => (
             <button
-              key={item.name} // each button will have a uniqye key using its name
+              key={item.name} // each button will have a uniqe key using its name
               className={`sidebar-link ${
-                // if buttonmatches the active pahe then it aslo adds the active class
+                // if buttonmatches the active page then it also adds the active class
                 activePage === item.name ? "active" : ""
               }`}
               // when the user click sthe button, it calls onNavigate  and passes the selected items name.
@@ -45,7 +45,7 @@ function Sidebar({ activePage, onNavigate }) {
 
       <div className="sidebar-footer">
         <p>Vendor Account</p>
-        <small>DigiTuck Marketplace</small>
+        <small>DigiTuck</small>
       </div>
     </aside>
   );
