@@ -1,0 +1,295 @@
+/* GLOBAL STYLING*/
+
+/* selects all the elements and removes default spacing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* styles the default font, background and text colour */
+body {
+  font-family: Arial, sans-serif;
+  background: whitesmoke;
+  color: darkgrey;
+}
+
+/*MAIN APP LAYOUT*/
+/* This arranges the sidebar and main content horizontally */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/*SIDEBAR STYLING*/
+/*vendor navigation sidebar*/
+.vendor-sidebar {
+  width: 250px;
+  background: #153c2b;
+  color: white;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+/*DigiTuck brand heading */
+.sidebar-brand h2 {
+  font-size: 27px;
+  margin-bottom: 5px;
+}
+
+/*vendor portal subtitle */
+.sidebar-brand p {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: white;
+}
+
+/*adds spacing above the sidebar menu */
+.sidebar-menu {
+  margin-top: 55px;
+}
+
+/*menu section heading */
+.menu-heading {
+  font-size: 11px;
+  color: white;
+  margin-bottom: 15px;
+}
+
+/*sidebar navigation buttons */
+.sidebar-link {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  background: transparent;
+  color: white;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+/*changes the background when a menu item is active or hovered over */
+.sidebar-link:hover,
+.sidebar-link.active {
+  background: green;
+}
+
+/*SIDEBAR FOOTER*/
+
+/*Positions the vendor account information at the bottom */
+.sidebar-footer {
+  margin-top: auto;
+  border-top: 1px solid #42634f;
+  padding-top: 20px;
+}
+
+/*footer's smaller text */
+.sidebar-footer small {
+  color: white;
+}
+
+/* MAIN CONTENT AREA*/
+
+/* Controls the main dashboard content area */
+.main-content {
+  flex: 1;
+  min-width: 0;
+  padding: 35px;
+}
+
+/*DASHBOARD HEADER*/
+/*arranges the dashboard heading & store status */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+/*main dashboard heading */
+.dashboard-header h1 {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+/*dashboard welcome message */
+.dashboard-header p {
+  color: grey;
+  font-size: 14px;
+}
+
+/*VENDOR STORE STATUS */
+
+/*store active status indicator */
+.vendor-status {
+  background: whitesmoke;
+  color: green;
+  padding: 10px 15px;
+  border-radius: 20px;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+/*this creates a small green status indicator dot */
+.status-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: lightgreen;
+  border-radius: 50%;
+  margin-right: 7px;
+}
+
+/*DASHBOARD STATISTICS */
+/*arranges the 4 statistic cards in a grid */
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/*statistic and content cards styling */
+.stat-card,
+.content-card {
+  background: white;
+  border-radius: 12px;
+  padding: 22px;
+  border: 1px solid whitesmoke;
+}
+
+/* Styles the statistic card descriptions */
+.stat-card p {
+  color: grey;
+  font-size: 13px;
+}
+
+/*styles the statistic values */
+.stat-card h2 {
+  margin: 15px 0 8px;
+  font-size: 27px;
+}
+
+/*supporting text inside dashboard cards */
+.stat-card small,
+.content-card p {
+  color: #89928b;
+  font-size: 12px;
+}
+
+/*DASHBOARD CONTENT*/
+/* arranges the recent orders and store overview cards */
+.dashboard-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  margin-top: 25px;
+}
+
+/* Adds spacing under content card headings */
+.content-card h3 {
+  margin-bottom: 12px;
+}
+
+/*RECENT ORDERS*/
+/* Arranges order details in horizontal rows */
+.order-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 18px 0;
+  border-bottom: 1px solid whitesmoke;
+  font-size: 13px;
+}
+
+/*indicates the orders that are still pending */
+.order-pending {
+  color: orange;
+}
+
+/*indicates the completed orders and active store status */
+.order-complete,
+.active-text {
+  color: green;
+}
+
+/*TABLET RESPONSIVE DESIGN */
+
+/*This adjusts dashboard layout for screens smaller than 900px */
+@media (max-width: 900px) {
+  /* displays 2 statistic cards per row */
+  .dashboard-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* displays the dashboard content cards in 1 column */
+  .dashboard-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* MOBILE RESPONSIVE DESIGN*/
+
+/*This adjusts the layout for screens that are smaller than 600px */
+@media (max-width: 600px) {
+  /*makes the sidebar narrower on mobile devices */
+  .vendor-sidebar {
+    width: 75px;
+    padding: 20px 8px;
+  }
+
+  /*reduces the brand heading size */
+  .sidebar-brand h2 {
+    font-size: 14px;
+  }
+
+  /*hides unneeded sidebar text and inactive menu items */
+  .sidebar-brand p,
+  .menu-heading,
+  .sidebar-footer,
+  .sidebar-link:not(.active) {
+    display: none;
+  }
+
+  /*djusts navigation buttons for mobile screens */
+  .sidebar-link {
+    font-size: 0;
+    text-align: center;
+    padding: 14px 5px;
+  }
+
+  /* Reduces the main content padding */
+  .main-content {
+    padding: 18px 12px;
+  }
+
+  /*stacks the dashboard heading and store status vertically */
+  .dashboard-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  /*reduces the dashboard heading size */
+  .dashboard-header h1 {
+    font-size: 23px;
+  }
+
+  /*reduces the  spacing between statistic cards */
+  .dashboard-stats {
+    gap: 10px;
+  }
+
+  /*reduces statistic card padding */
+  .stat-card {
+    padding: 14px;
+  }
+
+  /*reduces the statistic values on mobile */
+  .stat-card h2 {
+    font-size: 21px;
+  }
+}

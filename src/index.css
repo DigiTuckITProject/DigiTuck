@@ -1,0 +1,260 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: whitesmoke;
+  color: black;
+}
+
+button {
+  cursor: pointer;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: whitesmoke;
+  color: black;
+}
+
+.app-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.vendor-sidebar {
+  width: 250px;
+  background: darkgreen;
+  color: white;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.sidebar-brand h2 {
+  font-size: 27px;
+  margin-bottom: 5px;
+}
+
+.sidebar-brand p {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: white;
+}
+
+.sidebar-menu {
+  margin-top: 55px;
+}
+
+.menu-heading {
+  font-size: 11px;
+  color: white;
+  margin-bottom: 15px;
+}
+
+.sidebar-link {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  background: transparent;
+  color: white;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.sidebar-link span {
+  margin-right: 12px;
+}
+
+.sidebar-link:hover,
+.sidebar-link.active {
+  background: green;
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  border-top: 1px solid darkgreen;
+  padding-top: 20px;
+}
+
+.sidebar-footer small {
+  color: white;
+}
+
+.main-content {
+  flex: 1;
+  min-width: 0;
+  padding: 35px;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.dashboard-header h1 {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.dashboard-header p {
+  color: #778078;
+  font-size: 14px;
+}
+
+.vendor-status {
+  background: lightgreen;
+  color: green;
+  padding: 10px 15px;
+  border-radius: 20px;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.status-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: green;
+  border-radius: 50%;
+  margin-right: 7px;
+}
+
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.stat-card,
+.content-card {
+  background: white;
+  border-radius: 12px;
+  padding: 22px;
+  border: 1px solid whitesmoke;
+}
+
+.stat-card p {
+  color: grey;
+  font-size: 13px;
+}
+
+.stat-card h2 {
+  margin: 15px 0 8px;
+  font-size: 27px;
+}
+
+.stat-card small,
+.content-card p {
+  color: lightgrey;
+  font-size: 12px;
+}
+
+.dashboard-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  margin-top: 25px;
+}
+
+.content-card h3 {
+  margin-bottom: 12px;
+}
+
+.order-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 18px 0;
+  border-bottom: 1px solid whitesmoke;
+  font-size: 13px;
+}
+
+.order-pending {
+  color: orange;
+}
+
+.order-complete,
+.active-text {
+  color: green;
+}
+
+@media (max-width: 900px) {
+  .dashboard-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .vendor-sidebar {
+    width: 75px;
+    padding: 20px 8px;
+  }
+
+  .sidebar-brand h2 {
+    font-size: 14px;
+  }
+
+  .sidebar-brand p,
+  .menu-heading,
+  .sidebar-footer,
+  .sidebar-link:not(.active) {
+    display: none;
+  }
+
+  .sidebar-link {
+    font-size: 0;
+    text-align: center;
+    padding: 14px 5px;
+  }
+
+  .sidebar-link span {
+    font-size: 19px;
+    margin: 0;
+  }
+
+  .main-content {
+    padding: 18px 12px;
+  }
+
+  .dashboard-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .dashboard-header h1 {
+    font-size: 23px;
+  }
+
+  .dashboard-stats {
+    gap: 10px;
+  }
+
+  .stat-card {
+    padding: 14px;
+  }
+
+  .stat-card h2 {
+    font-size: 21px;
+  }
+}
