@@ -1,5 +1,4 @@
 /* GLOBAL STYLING*/
-
 /* selects all the elements and removes default spacing */
 * {
   margin: 0;
@@ -10,22 +9,20 @@
 /* styles the default font, background and text colour */
 body {
   font-family: Arial, sans-serif;
-  background: whitesmoke;
-  color: darkgrey;
+  background: #f4f6f8;
+  color: #333333;
 }
 
 /*MAIN APP LAYOUT*/
-/* This arranges the sidebar and main content horizontally */
 .app-container {
   display: flex;
   min-height: 100vh;
 }
 
 /*SIDEBAR STYLING*/
-/*vendor navigation sidebar*/
 .vendor-sidebar {
   width: 250px;
-  background: #153c2b;
+  background: #ff5722;
   color: white;
   padding: 30px 20px;
   display: flex;
@@ -33,32 +30,27 @@ body {
   flex-shrink: 0;
 }
 
-/*DigiTuck brand heading */
 .sidebar-brand h2 {
   font-size: 27px;
   margin-bottom: 5px;
 }
 
-/*vendor portal subtitle */
 .sidebar-brand p {
   font-size: 11px;
   letter-spacing: 2px;
   color: white;
 }
 
-/*adds spacing above the sidebar menu */
 .sidebar-menu {
   margin-top: 55px;
 }
 
-/*menu section heading */
 .menu-heading {
   font-size: 11px;
   color: white;
   margin-bottom: 15px;
 }
 
-/*sidebar navigation buttons */
 .sidebar-link {
   width: 100%;
   padding: 14px;
@@ -72,29 +64,23 @@ body {
   font-size: 14px;
 }
 
-/*changes the background when a menu item is active or hovered over */
 .sidebar-link:hover,
 .sidebar-link.active {
-  background: green;
+  background: #e64a19;
 }
 
 /*SIDEBAR FOOTER*/
-
-/*Positions the vendor account information at the bottom */
 .sidebar-footer {
   margin-top: auto;
-  border-top: 1px solid #42634f;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
   padding-top: 20px;
 }
 
-/*footer's smaller text */
 .sidebar-footer small {
   color: white;
 }
 
 /* MAIN CONTENT AREA*/
-
-/* Controls the main dashboard content area */
 .main-content {
   flex: 1;
   min-width: 0;
@@ -102,7 +88,6 @@ body {
 }
 
 /*DASHBOARD HEADER*/
-/*arranges the dashboard heading & store status */
 .dashboard-header {
   display: flex;
   justify-content: space-between;
@@ -111,78 +96,67 @@ body {
   margin-bottom: 30px;
 }
 
-/*main dashboard heading */
 .dashboard-header h1 {
   font-size: 28px;
   margin-bottom: 8px;
 }
 
-/*dashboard welcome message */
 .dashboard-header p {
-  color: grey;
+  color: #64748b;
   font-size: 14px;
 }
 
 /*VENDOR STORE STATUS */
-
-/*store active status indicator */
 .vendor-status {
-  background: whitesmoke;
-  color: green;
+  background: #fff3e0;
+  color: #d84315;
   padding: 10px 15px;
   border-radius: 20px;
   font-size: 13px;
   white-space: nowrap;
 }
 
-/*this creates a small green status indicator dot */
 .status-dot {
   display: inline-block;
   width: 8px;
   height: 8px;
-  background: lightgreen;
+  background: #ff5722;
   border-radius: 50%;
   margin-right: 7px;
 }
 
 /*DASHBOARD STATISTICS */
-/*arranges the 4 statistic cards in a grid */
 .dashboard-stats {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 }
 
-/*statistic and content cards styling */
 .stat-card,
 .content-card {
   background: white;
   border-radius: 12px;
   padding: 22px;
-  border: 1px solid whitesmoke;
+  border: 1px solid #e2e8f0;
 }
 
-/* Styles the statistic card descriptions */
 .stat-card p {
-  color: grey;
+  color: #64748b;
   font-size: 13px;
 }
 
-/*styles the statistic values */
 .stat-card h2 {
   margin: 15px 0 8px;
   font-size: 27px;
 }
 
-/*supporting text inside dashboard cards */
 .stat-card small,
 .content-card p {
-  color: #89928b;
+  color: #64748b;
   font-size: 12px;
 }
 
 /*DASHBOARD CONTENT*/
-/* arranges the recent orders and store overview cards */
 .dashboard-content {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -190,64 +164,51 @@ body {
   margin-top: 25px;
 }
 
-/* Adds spacing under content card headings */
 .content-card h3 {
   margin-bottom: 12px;
 }
 
 /*RECENT ORDERS*/
-/* Arranges order details in horizontal rows */
 .order-row {
   display: flex;
   justify-content: space-between;
   gap: 8px;
   padding: 18px 0;
-  border-bottom: 1px solid whitesmoke;
+  border-bottom: 1px solid #e2e8f0;
   font-size: 13px;
 }
 
-/*indicates the orders that are still pending */
 .order-pending {
-  color: orange;
+  color: #d97706;
 }
 
-/*indicates the completed orders and active store status */
 .order-complete,
 .active-text {
-  color: green;
+  color: #059669;
 }
 
 /*TABLET RESPONSIVE DESIGN */
-
-/*This adjusts dashboard layout for screens smaller than 900px */
 @media (max-width: 900px) {
-  /* displays 2 statistic cards per row */
   .dashboard-stats {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  /* displays the dashboard content cards in 1 column */
   .dashboard-content {
     grid-template-columns: 1fr;
   }
 }
 
-/* MOBILE RESPONSIVE DESIGN*/
-
-/*This adjusts the layout for screens that are smaller than 600px */
+/*MOBILE RESPONSIVE DESIGN*/
 @media (max-width: 600px) {
-  /*makes the sidebar narrower on mobile devices */
   .vendor-sidebar {
     width: 75px;
     padding: 20px 8px;
   }
 
-  /*reduces the brand heading size */
   .sidebar-brand h2 {
     font-size: 14px;
   }
 
-  /*hides unneeded sidebar text and inactive menu items */
   .sidebar-brand p,
   .menu-heading,
   .sidebar-footer,
@@ -255,41 +216,493 @@ body {
     display: none;
   }
 
-  /*djusts navigation buttons for mobile screens */
   .sidebar-link {
     font-size: 0;
     text-align: center;
     padding: 14px 5px;
   }
 
-  /* Reduces the main content padding */
   .main-content {
     padding: 18px 12px;
   }
 
-  /*stacks the dashboard heading and store status vertically */
   .dashboard-header {
     align-items: flex-start;
     flex-direction: column;
   }
 
-  /*reduces the dashboard heading size */
   .dashboard-header h1 {
     font-size: 23px;
   }
 
-  /*reduces the  spacing between statistic cards */
   .dashboard-stats {
     gap: 10px;
   }
 
-  /*reduces statistic card padding */
   .stat-card {
     padding: 14px;
   }
 
-  /*reduces the statistic values on mobile */
   .stat-card h2 {
     font-size: 21px;
   }
+}
+
+/*PRODUCTS PAGE*/
+.products-page {
+  width: 100%;
+}
+
+.products-header {
+  margin-bottom: 25px;
+}
+
+.products-header h1 {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.products-header p {
+  color: #64748b;
+  font-size: 14px;
+}
+
+/*PRODUCT FORM*/
+.product-form-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 25px;
+  margin-bottom: 30px;
+}
+
+.product-form-card h3 {
+  margin-bottom: 22px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 7px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #ff5722;
+}
+
+.form-group textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.form-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.save-product-btn {
+  background: #ff5722;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  background: #e2e8f0;
+  color: #333333;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+/*PRODUCT INVENTORY*/
+.inventory-section {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 25px;
+}
+
+.inventory-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.inventory-header h2 {
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.inventory-header p {
+  color: #64748b;
+  font-size: 13px;
+}
+
+.inventory-header input {
+  padding: 11px;
+  border: 1px solid #cbd5e1;
+  border-radius: 7px;
+  outline: none;
+}
+
+/*PRODUCT CARDS*/
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.product-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 18px;
+}
+
+.product-card-info h3 {
+  margin: 12px 0 8px;
+  font-size: 18px;
+}
+
+.product-card-info p {
+  color: #64748b;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.product-card-info h2 {
+  font-size: 21px;
+  margin: 15px 0;
+}
+
+.product-category {
+  background: #fff3e0;
+  color: #d84315;
+  padding: 5px 9px;
+  border-radius: 5px;
+  font-size: 11px;
+}
+
+.stock-available {
+  color: #059669;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.stock-unavailable {
+  color: #c0392b;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* PRODUCT BUTTONS */
+.product-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.edit-btn {
+  flex: 1;
+  padding: 9px;
+  background: rgb(220, 248, 220);
+  color: #059669;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.delete-btn {
+  flex: 1;
+  padding: 9px;
+  background: #fee2e2;
+  color: #c0392b;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* PRODUCTS RESPONSIVE DESIGN*/
+@media (max-width: 900px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .products-header h1 {
+    font-size: 23px;
+  }
+
+  .product-form-card,
+  .inventory-section {
+    padding: 15px;
+  }
+
+  .inventory-header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .inventory-header input {
+    width: 100%;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.image-preview {
+  margin-top: 15px;
+}
+
+.image-preview p {
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.image-preview img {
+  width: 150px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 5px;
+  border: 1px solid #cbd5e1;
+}
+
+.product-card-image {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 12px;
+}
+
+.no-product-image {
+  width: 100%;
+  height: 160px;
+  background-color: #eeeeee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  margin-bottom: 12px;
+  border-radius: 5px;
+}
+
+/* Orders page */
+.orders-page {
+  width: 100%;
+}
+
+.orders-header {
+  margin-bottom: 25px;
+}
+
+.orders-header h1 {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.orders-header p {
+  color: #64748b;
+}
+
+.orders-table-card {
+  background: white;
+  padding: 22px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.orders-table-card h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 650px;
+}
+
+.orders-table th,
+.orders-table td {
+  padding: 14px;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.orders-table th {
+  background: #f4f6f8;
+  font-size: 14px;
+}
+
+.orders-table td {
+  font-size: 14px;
+}
+
+.order-status {
+  padding: 5px 9px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.order-status.pending {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.order-status.processing {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.order-status.completed {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.order-status.cancelled {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.orders-table select {
+  padding: 7px;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+}
+
+/* Store Profile page */
+.store-profile-page {
+  width: 100%;
+}
+
+.store-profile-header {
+  margin-bottom: 25px;
+}
+
+.store-profile-header h1 {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.store-profile-header p {
+  color: #64748b;
+}
+
+.store-profile-card {
+  background: white;
+  padding: 25px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  max-width: 750px;
+}
+
+.store-profile-card h2 {
+  font-size: 20px;
+  margin-bottom: 25px;
+}
+
+.store-profile-card .form-group {
+  margin-bottom: 20px;
+}
+
+.store-profile-card input,
+.store-profile-card textarea {
+  width: 100%;
+}
+
+.store-profile-card textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.store-profile-card button {
+  margin-top: 10px;
+}
+
+/* Settings page */
+.settings-page {
+  width: 100%;
+}
+
+.settings-header {
+  margin-bottom: 25px;
+}
+
+.settings-header h1 {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.settings-header p {
+  color: #64748b;
+}
+
+.settings-card {
+  background: white;
+  padding: 25px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  max-width: 750px;
+}
+
+.settings-card h2 {
+  font-size: 20px;
+  margin-bottom: 25px;
+}
+
+.settings-card .form-group {
+  margin-bottom: 20px;
+}
+
+.settings-card .form-group input {
+  width: 100%;
+}
+
+.notification-setting {
+  margin-bottom: 20px;
+}
+
+.notification-setting label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.notification-setting input {
+  width: auto;
 }

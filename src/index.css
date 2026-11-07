@@ -6,8 +6,8 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: whitesmoke;
-  color: black;
+  background-color: #f4f6f8;
+  color: #333333;
 }
 
 button {
@@ -22,8 +22,8 @@ button {
 
 body {
   font-family: Arial, sans-serif;
-  background: whitesmoke;
-  color: black;
+  background: #f4f6f8;
+  color: #333333;
 }
 
 .app-container {
@@ -33,7 +33,7 @@ body {
 
 .vendor-sidebar {
   width: 250px;
-  background: darkgreen;
+  background: #ff5722;
   color: white;
   padding: 30px 20px;
   display: flex;
@@ -81,12 +81,12 @@ body {
 
 .sidebar-link:hover,
 .sidebar-link.active {
-  background: green;
+  background: #e64a19;
 }
 
 .sidebar-footer {
   margin-top: auto;
-  border-top: 1px solid darkgreen;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
   padding-top: 20px;
 }
 
@@ -114,13 +114,13 @@ body {
 }
 
 .dashboard-header p {
-  color: #778078;
+  color: #64748b;
   font-size: 14px;
 }
 
 .vendor-status {
-  background: lightgreen;
-  color: green;
+  background: #fff3e0;
+  color: #d84315;
   padding: 10px 15px;
   border-radius: 20px;
   font-size: 13px;
@@ -131,7 +131,7 @@ body {
   display: inline-block;
   width: 8px;
   height: 8px;
-  background: green;
+  background: #ff5722;
   border-radius: 50%;
   margin-right: 7px;
 }
@@ -147,11 +147,11 @@ body {
   background: white;
   border-radius: 12px;
   padding: 22px;
-  border: 1px solid whitesmoke;
+  border: 1px solid #e2e8f0;
 }
 
 .stat-card p {
-  color: grey;
+  color: #64748b;
   font-size: 13px;
 }
 
@@ -162,7 +162,7 @@ body {
 
 .stat-card small,
 .content-card p {
-  color: lightgrey;
+  color: #64748b;
   font-size: 12px;
 }
 
@@ -182,17 +182,17 @@ body {
   justify-content: space-between;
   gap: 8px;
   padding: 18px 0;
-  border-bottom: 1px solid whitesmoke;
+  border-bottom: 1px solid #e2e8f0;
   font-size: 13px;
 }
 
 .order-pending {
-  color: orange;
+  color: #d97706;
 }
 
 .order-complete,
 .active-text {
-  color: green;
+  color: #059669;
 }
 
 @media (max-width: 900px) {
