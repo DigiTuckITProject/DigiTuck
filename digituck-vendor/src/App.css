@@ -187,45 +187,83 @@ body {
   color: #059669;
 }
 
-/*TABLET RESPONSIVE DESIGN */
+/* TABLET RESPONSIVE DESIGN */
 @media (max-width: 900px) {
   .dashboard-stats {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .dashboard-content {
     grid-template-columns: 1fr;
   }
+
+  .stat-card,
+  .content-card {
+    min-width: 0;
+  }
 }
 
-/*MOBILE RESPONSIVE DESIGN*/
+/* MOBILE RESPONSIVE DESIGN */
 @media (max-width: 600px) {
+  /* Main layout */
+  .app-container {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  /* Sidebar navigation */
   .vendor-sidebar {
-    width: 75px;
-    padding: 20px 8px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    padding: 15px;
+    flex-shrink: 0;
   }
 
   .sidebar-brand h2 {
-    font-size: 14px;
+    font-size: 18px;
   }
 
-  .sidebar-brand p,
-  .menu-heading,
-  .sidebar-footer,
+  .sidebar-brand p {
+    display: block;
+    font-size: 10px;
+  }
+
+  .sidebar-menu {
+    display: block;
+    margin-top: 15px;
+  }
+
+  .menu-heading {
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .sidebar-link,
   .sidebar-link:not(.active) {
+    display: inline-block;
+    width: auto;
+    min-width: 75px;
+    padding: 10px;
+    margin: 3px;
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .sidebar-footer {
     display: none;
   }
 
-  .sidebar-link {
-    font-size: 0;
-    text-align: center;
-    padding: 14px 5px;
-  }
-
+  /* Main content */
   .main-content {
+    width: 100%;
+    min-width: 0;
     padding: 18px 12px;
   }
 
+  /* Dashboard header */
   .dashboard-header {
     align-items: flex-start;
     flex-direction: column;
@@ -235,16 +273,34 @@ body {
     font-size: 23px;
   }
 
-  .dashboard-stats {
-    gap: 10px;
+  .vendor-status {
+    white-space: normal;
+    max-width: 100%;
   }
 
-  .stat-card {
+  /* Dashboard statistics */
+  .dashboard-stats {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .dashboard-content {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card,
+  .content-card {
+    width: 100%;
+    min-width: 0;
     padding: 14px;
   }
 
   .stat-card h2 {
     font-size: 21px;
+  }
+
+  .order-row {
+    flex-wrap: wrap;
   }
 }
 
