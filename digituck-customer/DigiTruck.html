@@ -318,7 +318,55 @@ background:#e64a19;
     cursor:pointer;
     text-decoration:underline;
 }
-
+/*ADDED: CART AND CHECKOUt*/
+.menu-layout{
+    display:grid;
+    grid-template-columns: 2fr 1fr;
+    gap:1.5rem;
+}
+@media(max-width:900px){
+    .menu-layout{
+        grid-template-columns: 1fr;
+    }
+}
+.cart-box{
+    background: #fafafa;
+    border:1px solid #e2e8f0;
+    border-radius:8px;
+  padding:1.2rem;
+}
+.cart-item-row{
+    display: flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0.5rem 0;
+    border-bottom:1px dashed #e2e8f0;
+    font-size:0.85rem;
+}
+.cart-controls{
+    display:flex;
+    align-items:center;
+    gap:5px;
+}
+.qty-btn{
+    background:#cbd5e1;
+    border:none;
+    width:22px;
+    height:22px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor:pointer;
+}
+.checkout-modal-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(15,23,43,0.6);
+    display:none;
+    align-items:center;
+    justify-content: center;
+    z-index:150;
+    padding:1rem;
+}
 </style>
 
 </head>
@@ -380,8 +428,40 @@ background:#e64a19;
 </div>
 </div>
 
+<!--CHECKOUT MODAL -->
+<div id="checkoutModalOverlay" class="checkout-modal-overlay">
+<div class="portal-card" style="max-width:400px; text-align:left;">
+<h2> Confirm Checkout</h2>
+<p style="margin-bottom:1rem;">Review Your Order Below</p>
+<form onsubmit="processCheckout(event)">
+<div class="formal-group">
+<label>Payment Method</label>
+<select id="checkoutPayment" required>
+<option value="E-Wallet">E-WALLET</option>
+<option value="Debit/credit">DEBIT CARD</option>
+<option value="Cash on pickup">Cash On Pickup</option>
+
+</select>
+
+</div>
+<div style="margin-bottom:1rem; font-weight:bold;font-size:1.1rem;color:#1e293b;">
+Total Amount: <span id="checkoutModalTotal" style="color:#ff5722;"> R0.00</span>"
+</div>
+<div style="display:flex;gap:10px;">
+<button type="button" class="action-btn" style="background:#64748b; flex:1;" onclick="closeCheckoutModal()">Cancel</button>
+<button type="submit" class="action-btn" style="flex:1;">Complete Your Order</button>
+
+</div>
 
 
+
+</form>
+
+</div>
+
+
+
+</div>
 
 
 <!--Main Part of App-->
@@ -436,7 +516,8 @@ background:#e64a19;
 </div>
 <!--Menu-->
 <div id="tab-menu" class="screen">
-<div class="panel-card">
+<div class="menu-layout">
+    <div class="panel-card">
 <h4>Search And Order Food Items</h4>
 <input type="text" id="menuSearch" class="search-input" placeholder="search menu items (eg:Wraps,Chips)"onkeyup="filterMenu()">
 <table>
@@ -451,7 +532,8 @@ background:#e64a19;
 <tr>
 <td>Kota </td>
 <td>R30.00</td>
-<td><button class="action-btn" onclick="addOrder('Kota','R30.00')">Add To Order</button></td>
+<td>Fast Food</td>
+<td><button class="action-btn" onclick="addToCart('Kota','R30.00')">Add To Cart</button></td>
 
 </tr>
 
@@ -459,7 +541,8 @@ background:#e64a19;
 <tr>
 <td>Fried Chips </td>
 <td>R20.00</td>
-<td><button class="action-btn" onclick="addOrder('Fried Chips','R20.00')">Add To Order</button></td>
+<td>Fast Food</td>
+<td><button class="action-btn" onclick="addToCart('Fried Chips','R20.00')">Add To Cart</button></td>
 
 </tr>
 
@@ -467,10 +550,17 @@ background:#e64a19;
 <tr>
 <td>Chicken Wrap </td>
 <td>R40.00</td>
-<td><button class="action-btn" onclick="addOrder('Chicken Wrap','R40.00')">Add To Order</button></td>
+<td>Healthy Foods</td>
+<td><button class="action-btn" onclick="addToCart('Chicken Wrap','R40.00')">Add To Cart</button></td>
 
 </tr>
+<tr>
+<td>Hot Dog </td>
+<td>R20.00</td>
+<td>Fast food</td>
+<td><button class="action-btn" onclick="addToCart('Hot Dog','R20.00')">Add To Cart</button></td>
 
+</tr>
 
 
 
@@ -481,7 +571,7 @@ background:#e64a19;
 
 </table>
 </div>
-
+</div>
 
 </div>
 </div>
@@ -518,6 +608,28 @@ background:#e64a19;
 
 </table>
 </div>
+
+
+</div>
+
+
+<!--INTERACTIVE CART AND CHECKOUT-->
+<div class="panel-card cart-box" style="margin-bottom:0;">
+<h4>Current Cart</h4>
+<div id="cartItemsContainer" style="margin:1rem 0; min-height:100px; max-height:220px; overflow-y:auto;">
+<p style="color:#94a3b8;font-size:0.9rem;text-align:center;margin-top:2rem;" >Your Cart is Empty </p>
+
+
+</div>
+<div style="border-top:1px solid #cbd5e1;padding-top:0.8rem; margin-top:0.8rem;">
+    <div style="display:flex; justify-content: space-between;font-weight:bold;margin-bottom:1rem;color:#1e293b;">
+<span>Total: </span>
+<span id="cartSubtotalDisplay">R.00</span>
+    </div>
+    <button class="action-btn" id="proceedCheckoutBtn" style="width:100%;" onclick="openCheckoutModal()" disabled>Proceed To Checkout</button>
+</div> 
+
+
 
 
 </div>
@@ -695,7 +807,7 @@ font-weight:bold;
 <script>
    let currentRole='CUSTOMER';
    let currentUser={name:'',email:'',extra:''};
-
+let cart=[];
    function openSignInForm(role){
     currentRole=role;
 document.getElementById('roleSelectionCard').style.display='none';
@@ -774,9 +886,109 @@ function switchTab(tabName){
      row.style.display=text.includes(query)? '':'none';
         });
     }
+    /*Cart To Add*/
+
+function addToCart(itemName,priceStr){
+    let price = typeof priceStr === 'number' ? priceStr : parseFloat(priceStr.replace(/[^0-9.]/g, '')) || 0;
+    let existingItem=cart.find(item=>item.name===itemName);
+    if(existingItem){
+        existingItem.qty+=1;
+    }else{
+        cart.push({name:itemName,price:price,qty:1});
+    }
+    updateCartUI();
+}
+//update quantity in the cart
+function changeQty(itemName,amount){
+let item=cart.find(i=>i.name===itemName);
+if(item){
+    item.qty+=amount;
+    if(item.qty<=0){
+        cart=cart.filter(i=>i.name !==itemName);
+    }
+}
+
+updateCartUI();
+
+}
+//cart sidebar ui and subtotal
+function updateCartUI(){
+let container=document.getElementById('cartItemsContainer');
+let subtotalDisplay=document.getElementById('cartSubtotalDisplay');
+let checkoutBtn=document.getElementById('proceedCheckoutBtn');
+
+container.innerHTML='';
+if(cart.length===0){
+    container.innerHTML='<p style="color:#94a3b8;font-size:0.9rem;text-align:center;margin-top:2rem;">Your Cart Is Empty</p>';
+subtotalDisplay.innerText='R0.00';
+checkoutBtn.disabled=true;
+return;
+
+}
+let total=0;
+cart.forEach(item=>{
+let itemTotal=item.price*item.qty;
+total +=itemTotal;
+
+let row=document.createElement('div');
+row.className='cart-item-row';
+row.innerHTML=`<div><strong>${item.name}</strong><br><span style="color:#64748b;">R${item.price.toFixed(2)} x ${item.qty}</span></div>
+<div class="cart-controls">
+    <button class="qty-btn" onclick="changeQty('${item.name}',-1)">-</button>
+    <span>${item.qty}</span>
+    <button class="qty-btn" onclick="changeQty('${item.name}',1)">+</button>
+    </div>
+    `;
+container.appendChild(row);
+
+
+});
+subtotalDisplay.innerText='R'+total.toFixed(2);
+checkoutBtn.disabled=false;
+
+}
+//Checkout controls
+function openCheckoutModal(){
+if(cart.length===0)return;
+document.getElementById('checkoutModalTotal').innerText=document.getElementById('cartSubtotalDisplay').innerText;
+
+document.getElementById('checkoutModalOverlay').style.display='flex';
+
+
+}
+function closeCheckoutModal(){
+document.getElementById('checkoutModalOverlay').style.display='none';
+
+}
+//complete order process
+function processCheckout(e){
+e.preventDefault();
+let paymentMethod=document.getElementById('checkoutPayment').value;
+let totalAmount=document.getElementById('checkoutModalTotal').innerText;
+let tbody=document.getElementById('ordersTableBody');
+let orderId='#OR' + Math.floor(1000+Math.random()*9000);
+let summaryText=cart.map(i=> `${i.qty}x ${i.name}`).join(',');
+let newRow=document.createElement('tr');
+newRow.innerHTML =`<td>${orderId}</td><td>${summaryText}(${totalAmount}via ${paymentMethod})</td><td><span class="status--badge badge-pending">Pending </span></td>`;
+tbody.prepend(newRow);
+alert ('Order successfully placed!Total: '+totalAmount);
+
+//to reset cart
+cart=[];
+updateCartUI();
+closeCheckoutModal();
+switchTab('orders');
+
+
+
+
+
+}
+
+
 
 //adding items
-function addOrder(itemName, price){
+/*function addOrder(itemName, price){
     let tbody=document.getElementById('ordersTableBody');
     let orderId='#OR'+Math.floor(1000+Math.random()*9000);
 let newRow=document.createElement('tr');
@@ -785,7 +997,7 @@ tbody.prepend(newRow);
 alert('Your Order Has Been Succesful!'+itemName+'.Check your order tab.');
 
 switchTab('orders');
-}
+}*/
 
 //update settings on profile settings
 function updateProfile(e){
@@ -806,5 +1018,4 @@ function logout(){
 </script>
 
 </body>
-
 
