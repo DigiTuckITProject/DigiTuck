@@ -1,0 +1,323 @@
+/* GLOBAL STYLING */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6f8;
+  color: #333333;
+}
+
+/* THE MAIN ADMIN LAYOUT */
+.admin-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* THE SIDEBAR */
+.admin-sidebar {
+  width: 250px;
+  min-height: 100vh;
+  background: #ff5722;
+  color: white;
+  padding: 25px 15px;
+  flex-shrink: 0;
+}
+
+.admin-logo {
+  padding: 10px 15px 35px;
+}
+
+.admin-logo h2 {
+  font-size: 25px;
+  margin-bottom: 5px;
+}
+
+.admin-logo p {
+  color: white;
+  font-size: 13px;
+}
+
+.admin-sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.admin-sidebar nav button {
+  background: transparent;
+  border: none;
+  color: white;
+  text-align: left;
+  padding: 13px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.admin-sidebar nav button:hover,
+.admin-sidebar nav button.active {
+  background: #e64a19;
+  color: white;
+}
+
+/* MAIN CONTENT */
+.admin-main-content {
+  flex: 1;
+  min-width: 0;
+  padding: 35px;
+}
+
+/* PAGE HEADERS */
+.admin-page-header {
+  margin-bottom: 30px;
+}
+
+.admin-page-header h1 {
+  font-size: 26px;
+  margin-bottom: 8px;
+}
+
+.admin-page-header p {
+  color: #64748b;
+  font-size: 14px;
+}
+
+/* DASHBOARD STATISTICS */
+.admin-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.admin-stat-card {
+  background: white;
+  padding: 22px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+}
+
+.admin-stat-card p {
+  color: #64748b;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.admin-stat-card h2 {
+  font-size: 27px;
+  color: #333333;
+}
+
+/* GENERAL SECTIONS */
+.admin-section,
+.admin-settings-card,
+.vendor-application-card {
+  background: white;
+  padding: 25px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+}
+
+.admin-section h2 {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.admin-section p {
+  color: #64748b;
+  font-size: 14px;
+}
+
+/* USER MANAGEMENT CONTROLS */
+.admin-user-controls {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.admin-user-controls input,
+.admin-user-controls select {
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  background: white;
+  font-size: 14px;
+}
+
+.admin-user-controls input {
+  width: 300px;
+}
+
+/* TABLES */
+.admin-table-container {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.admin-table-container table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.admin-table-container th,
+.admin-table-container td {
+  padding: 15px;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.admin-table-container th {
+  background: #f4f6f8;
+  color: #64748b;
+}
+
+/* STATUS LABELS */
+.admin-status {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.admin-status.active,
+.admin-status.approved {
+  background: #e3f5e9;
+  color: #247442;
+}
+
+.admin-status.inactive,
+.admin-status.rejected {
+  background: #fce8e8;
+  color: #b83232;
+}
+
+.admin-status.pending {
+  background: #fff3d9;
+  color: #996b13;
+}
+
+/* ACTION BUTTONS */
+.admin-action-btn,
+.approve-btn,
+.reject-btn,
+.admin-save-btn {
+  border: none;
+  padding: 9px 13px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.admin-action-btn {
+  background: #fff3e0;
+  color: #d84315;
+}
+
+.approve-btn,
+.admin-save-btn {
+  background: #153c2b;
+  color: white;
+}
+
+.reject-btn {
+  background: #fce8e8;
+  color: #b83232;
+}
+
+/* VENDOR VERIFICATION */
+.vendor-applications {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.vendor-application-card h2 {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.vendor-application-info p {
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #64748b;
+}
+
+.vendor-application-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* ADMIN SETTINGS */
+.admin-settings-card {
+  max-width: 600px;
+}
+
+.admin-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.admin-form-group label {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.admin-form-group input {
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.admin-save-btn {
+  padding: 12px 20px;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 900px) {
+  .admin-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .admin-container {
+    flex-direction: column;
+  }
+
+  .admin-sidebar {
+    width: 100%;
+    min-height: auto;
+  }
+
+  .admin-sidebar nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .admin-main-content {
+    padding: 20px 15px;
+  }
+
+  .admin-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-user-controls {
+    flex-direction: column;
+  }
+
+  .admin-user-controls input {
+    width: 100%;
+  }
+}
