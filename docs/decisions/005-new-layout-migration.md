@@ -1,0 +1,13 @@
+# 005 — Existing backend behind the new vendor layout
+
+2026-11-09. User selected `C:/my-projects/clone/DigiTuck/digituck-vendor` as the active project and explicitly requested its layout unchanged. Copy the existing API/contracts/migrations/scripts/tests/infra into that project; preserve its `src/App.css` and component layout classes. Replace mock content with real state. Add missing screens in the same visual style. Do not remove or reset either repository.
+
+The database is a separate running MySQL instance. Reuse its existing connection and session secret rather than exporting/recreating accounts or trying to move live database files. Existing roles, bcrypt hashes and histories are untouched. Copy the ignored local document storage and verify bytes; keep credentials/files excluded from Git. Use 5175/4005 to avoid the old app's ports. The original native MySQL runtime/data path is still an operator dependency, documented in README.
+
+Preserve the user's collection-only baseline. Complete the preceding guest-cart/login-at-checkout request in the new directory, with real atomic order submission, exact integer cents, historical snapshots, DB-backed idempotency, own-resource access, basic fulfilment and pending expiry. No fake success screens or client-only inventory. The order phase remains partial: prepared-order cancellation/restock and admin order interventions are not introduced.
+
+A browser cart contains versioned IDs, quantities and cached display values only. Checkout revalidates every field; cookies/session credentials never enter localStorage. A per-tab uncertain attempt retains the original key/body to allow replay after refresh. Frontend login accepts only the fixed `next=checkout` destination, avoiding open redirects. Guest navigation excludes Orders/Account.
+
+Use existing price/stock contracts and ownership protections. Implement missing prototype fields through persistent APIs: images use Sharp 0.35.5 (official npm engines >=20.9.0, compatible with Node 24), max 2MB, decoded/resized WebP without metadata; raw private object keys are not public. Product image access rechecks owner or public visibility. Replaced images are retained in private storage; a future retention/cleanup job is needed. API supports saved in-app order-alert preferences, not external notifications. Dashboard value counts COLLECTED orders only and is labelled as unverified payment value.
+
+Official API references checked during implementation: https://knexjs.org/guide/transactions.html and https://react.dev/reference/react/useSyncExternalStore . No new paid services or deployment. Exact dependencies and lockfile retained. Source project remains a reference; all further work belongs in the new directory.
