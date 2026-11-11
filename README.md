@@ -4,7 +4,7 @@ DigiTuck is an online tuckshop ordering system that helps customers find partici
 
 The project is built as a web application with a React frontend, an Express API, and a MySQL database. 
 
-Link to the webbase application:sakhimhlongo-foundation.org.za
+Link to the webbase application: sakhimhlongo-foundation.org.za
 
 ## Table of Contents
 
