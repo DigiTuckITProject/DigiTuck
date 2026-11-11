@@ -1,0 +1,2 @@
+PRIVATE DEPLOYMENT: sakhimhlongo-foundation.org.za
+Contains production database credentials. Do not share publicly. Read DEPLOYMENT.md.

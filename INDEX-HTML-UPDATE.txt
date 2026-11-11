@@ -1,0 +1,10 @@
+DigiTuck index.html frontend update
+
+1. Back up your existing public_html/.htaccess and index.html if present.
+2. Extract this ZIP outside public_html.
+3. Copy the contents of its public_html folder into the website public_html, including the hidden .htaccess. Overwrite matching frontend files. Keep your existing index.php: it serves the Laravel API.
+4. Copy digituck-app/routes/web.php into the corresponding backend routes folder. If routes were cached, run php artisan route:clear from digituck-app using PHP 8.3+, or ask hosting support to do so.
+5. Hard refresh the website. The homepage and React routes now load index.html directly; /api requests still use PHP.
+
+Do not replace .env, import SQL, or delete your database. No credentials are included in this update.
+The old app.html is unused and can be removed. This frontend change does not fix PHP startup/database failures. Login, products and checkout require a working Laravel API and its database migrations.
